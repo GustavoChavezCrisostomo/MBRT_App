@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_menu"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_menu" />
+
+    <item
+        android:id="@+id/navigation_nuevaAtencion"
+        android:icon="@drawable/ic_menu_newattention"
+        android:title="@string/title_nuevaAtencion" />
+
+    <item
+        android:id="@+id/navigation_contacto"
+        android:icon="@drawable/ic_menu_contacto"
+        android:title="@string/title_contacto" />
+
+</menu>
