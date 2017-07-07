@@ -8,19 +8,14 @@ import android.view.ViewGroup;
 
 import mbrtechnology.com.mbrt_app.R;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
-public class ClienteFragment extends Fragment {
-
-    public ClienteFragment() {
+public class MenuFragment extends Fragment {
+    public MenuFragment() {
         // Required empty public constructor
     }
 
     //add
-    public static ClienteFragment newInstance() {
-        ClienteFragment fragment = new ClienteFragment();
+    public static MenuFragment newInstance() {
+        MenuFragment fragment = new MenuFragment();
         return fragment;
     }
 
@@ -34,7 +29,7 @@ public class ClienteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_cliente, container, false);
+        View view =  inflater.inflate(R.layout.fragment_menu, container, false);
 
 
         // ProgressBar Gone
@@ -43,5 +38,4 @@ public class ClienteFragment extends Fragment {
 
         return view;
     }
-
 }
