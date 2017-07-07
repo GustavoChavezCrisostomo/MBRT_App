@@ -63,7 +63,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/editText2"
+        android:layout_alignStart="@+id/Desc"
         android:layout_below="@+id/ruc_dni"
         android:layout_marginTop="29dp"
         android:text="Telefono"
@@ -84,14 +84,14 @@
         android:id="@+id/dire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/editText2"
+        android:layout_alignStart="@+id/Desc"
         android:layout_below="@+id/telf"
         android:layout_marginTop="36dp"
         android:text="Dirección"
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/Desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView5"
