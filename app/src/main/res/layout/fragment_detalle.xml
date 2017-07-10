@@ -12,16 +12,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="544dp"
+        android:layout_height="match_parent"
         android:padding="16dp">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
             android:text="Detalle"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -31,94 +29,98 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView3"
+            android:layout_below="@+id/button2"
             android:layout_marginStart="38dp"
-            android:layout_marginTop="29dp"
-            android:text="Area"
+            android:text="Estado"
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/area"
+            android:id="@+id/estado_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/textView3"
             android:layout_below="@+id/textView4"
-            android:layout_marginTop="21dp"
-            android:text="Area"
-            android:layout_toEndOf="@+id/textView4" />
+            android:layout_marginTop="13dp"
+            android:layout_toEndOf="@+id/textView4"
+            android:text="Estado" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textView4"
-            android:layout_below="@+id/area"
-            android:layout_marginTop="27dp"
+            android:layout_below="@+id/estado_text"
+            android:layout_marginTop="20dp"
             android:text="Tecnico"
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tecnico"
+            android:id="@+id/area_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/area"
+            android:layout_alignEnd="@+id/textView3"
+            android:layout_alignStart="@+id/tecnico_text"
+            android:layout_below="@+id/textView2"
+            android:layout_marginTop="19dp"
+            android:layout_toEndOf="@+id/deta"
+            android:text="Area" />
+
+
+        <TextView
+            android:id="@+id/tecnico_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView3"
+            android:layout_alignStart="@+id/estado_text"
             android:layout_below="@+id/textView5"
             android:layout_marginTop="17dp"
-            android:layout_toStartOf="@+id/button2"
             android:text="Tecnico" />
-
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView5"
             android:layout_alignStart="@+id/textView5"
-            android:layout_below="@+id/tecnico"
-            android:layout_marginTop="28dp"
-            android:text="Estado"
+            android:layout_below="@+id/tecnico_text"
+            android:layout_marginTop="19dp"
+            android:text="Area"
             android:textSize="18sp" />
-
-        <Spinner
-            android:id="@+id/estado"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/tecnico"
-            android:layout_alignStart="@+id/tecnico"
-            android:layout_below="@+id/textView2"
-            android:layout_marginTop="20dp"
-            android:text="Estado" />
 
         <TextView
             android:id="@+id/deta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Detalle"
-            android:textSize="18sp"
-            android:layout_below="@+id/estado"
-            android:layout_alignStart="@+id/textView2" />
-
-        <TextView
-            android:id="@+id/Desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/estado"
-            android:layout_below="@+id/deta"
-            android:layout_marginTop="14dp"
-            android:layout_toStartOf="@+id/button2"
-            android:text="Detalle" />
+            android:layout_alignStart="@+id/textView2"
+            android:layout_below="@+id/area_text"
+            android:layout_marginTop="18dp"
+            android:text="Cambio de estatus"
+            android:textSize="18sp" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="11dp"
             android:clickable="true"
             android:onClick="callMainForm"
             app:fabSize="mini"
-            app:srcCompat="?android:attr/homeAsUpIndicator"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="11dp" />
+            app:srcCompat="?android:attr/homeAsUpIndicator" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignEnd="@+id/button2"
+            android:layout_alignStart="@+id/deta"
+            android:layout_below="@+id/deta">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/estatutos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
 
     </RelativeLayout>
 

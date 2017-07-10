@@ -78,17 +78,6 @@
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/btn_register"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@color/colorPrimary"
-                android:onClick="formRegister"
-                android:text="Registrarse"
-                android:textColor="@android:color/white"
-                android:textStyle="bold" />
-
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -96,14 +85,14 @@
             </android.support.design.widget.TextInputLayout>
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/restablecer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50pt"
                 android:layout_marginTop="20px"
                 android:layout_weight="0.12"
-                android:text="¿Olvidastes tu contraseña?"
-                android:onClick=""/>
+                android:onClick=""
+                android:text="¿Olvidastes tu contraseña?" />
 
         </LinearLayout>
 

@@ -12,8 +12,6 @@
         <activity android:name=".activities.MainActivity">
 
         </activity>
-        <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.InfoActivity" />
         <activity
             android:name=".activities.PrincipalActivity"
             android:label="@string/title_activity_principal">
