@@ -71,6 +71,6 @@ public class IncidenteAdapter extends RecyclerView.Adapter<IncidenteAdapter.View
     }
 
     @Override
-    public 
+    public
 
 }
