@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import mbrtechnology.com.mbrt_app.R;
 import mbrtechnology.com.mbrt_app.fragments.ClienteFragment;
 import mbrtechnology.com.mbrt_app.fragments.ContactoFragment;
+import mbrtechnology.com.mbrt_app.fragments.MenuFragment;
 
 public class PrincipalActivity extends AppCompatActivity {
 
@@ -28,7 +29,7 @@ public class PrincipalActivity extends AppCompatActivity {
                         Fragment selectedFragment = null;
                         switch (item.getItemId()) {
                             case R.id.navigation_menu:
-                                selectedFragment = ContactoFragment.newInstance();
+                                selectedFragment = MenuFragment.newInstance();
                                 break;
                             case R.id.navigation_nuevaAtencion:
                                 selectedFragment = ClienteFragment.newInstance();
@@ -46,7 +47,7 @@ public class PrincipalActivity extends AppCompatActivity {
 
         //Manually displaying the first fragment - one time only
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content, ClienteFragment.newInstance());
+        transaction.replace(R.id.content, MenuFragment.newInstance());
         transaction.commit();
 
         //Used to select an item programmatically
