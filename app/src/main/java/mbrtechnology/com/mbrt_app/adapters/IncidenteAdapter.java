@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import mbrtechnology.com.mbrt_app.R;
-import mbrtechnology.com.mbrt_app.fragments.DetalleFragment;
+import mbrtechnology.com.mbrt_app.activities.DetalleActivity;
 import mbrtechnology.com.mbrt_app.fragments.MenuFragment;
 import mbrtechnology.com.mbrt_app.models.Incidente;
 
@@ -63,7 +63,7 @@ public class IncidenteAdapter extends RecyclerView.Adapter<IncidenteAdapter.View
         viewHolder.itemView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(activity, DetalleFragment.class);
+                Intent intent = new Intent(activity, DetalleActivity.class);
                 intent.putExtra("ID", incidente.getId());
                 activity.startActivity(intent);
             }
@@ -71,6 +71,6 @@ public class IncidenteAdapter extends RecyclerView.Adapter<IncidenteAdapter.View
     }
 
     @Override
-    public
+    public int getItemCount(){ return this.incidentes.size(); }
 
 }
