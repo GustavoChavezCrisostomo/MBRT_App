@@ -5,14 +5,13 @@ package mbrtechnology.com.mbrt_app.models;
  */
 
 public class Incidente {
-    private int id;
+    private Integer id;
     private String contacto;
     private String area;
     private String descripcion;
     private String estado;
 
     public Incidente(){
-
     }
 
     public Incidente(String contacto, String area, String descripcion, String estado){
@@ -22,10 +21,10 @@ public class Incidente {
         this.estado = estado;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

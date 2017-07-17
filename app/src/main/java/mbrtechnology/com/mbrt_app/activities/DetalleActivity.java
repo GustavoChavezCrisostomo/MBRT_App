@@ -1,13 +1,13 @@
 package mbrtechnology.com.mbrt_app.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import mbrtechnology.com.mbrt_app.R;
-import mbrtechnology.com.mbrt_app.fragments.MenuFragment;
 
 public class DetalleActivity extends AppCompatActivity {
 
@@ -30,6 +30,11 @@ public class DetalleActivity extends AppCompatActivity {
     }
 
     public void callMainForm(View view) {
-        startActivityForResult(new Intent(this, MenuFragment.class), MAIN_FORM_REQUEST);
+        startActivityForResult(new Intent(this, PrincipalActivity.class), MAIN_FORM_REQUEST);
     }
+
+    public TextView estado;
+    public TextView tecnico;
+    public TextView area;
+
 }

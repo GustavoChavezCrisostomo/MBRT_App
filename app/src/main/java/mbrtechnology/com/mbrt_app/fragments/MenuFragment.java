@@ -53,7 +53,7 @@ public class MenuFragment extends Fragment {
 
         incidentesList = (RecyclerView)view.findViewById(R.id.incidente_list);
         incidentesList.setLayoutManager(new LinearLayoutManager(getActivity()));
-        incidentesList.setAdapter(new IncidenteAdapter());
+        incidentesList.setAdapter(new IncidenteAdapter(getActivity()));
 
         initialize();
 

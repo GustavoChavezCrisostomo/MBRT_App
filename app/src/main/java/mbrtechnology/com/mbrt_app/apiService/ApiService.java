@@ -14,7 +14,7 @@ public interface ApiService {
 
     String API_BASE_URL = "https://mbrt-gustavoch25.c9users.io";
 
-    @GET("api/v1/incidentes")
+    @GET("api/v1/incidente")
     Call<List<Incidente>> getIncidentes();
 
 }
