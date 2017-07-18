@@ -7,4 +7,21 @@
     <string name="title_menu">Menu</string>
     <string name="title_nuevaAtencion">Nueva Atencion</string>
     <string name="title_contacto">Contacto</string>
+
+    <string-array name="estado">
+        <item>Abierta</item>
+        <item>Asignado</item>
+        <item>Proceso</item>
+        <item>Pendiente</item>
+        <item>Cancelado</item>
+        <item>Concluido</item>
+        <item>Cerrado</item>
+    </string-array>
+
+    <string-array name="area">
+        <item>Garantias</item>
+        <item>Atencion Cliente</item>
+        <item>Soporte 2do nivel</item>
+    </string-array>
+
 </resources>

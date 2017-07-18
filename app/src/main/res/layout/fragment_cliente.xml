@@ -27,8 +27,8 @@
         android:layout_below="@+id/textView3"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:id="@+id/contacto_text"
+    <EditText
+        android:id="@+id/contacto_Input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/textView5"
@@ -36,7 +36,6 @@
         android:layout_toEndOf="@+id/descrip"
         android:ems="10"
         android:inputType="textMultiLine"
-        android:text="contacto"
         android:textSize="18sp" />
 
     <TextView
@@ -46,17 +45,17 @@
         android:text="Area"
         android:textSize="18sp"
         android:layout_marginTop="22dp"
-        android:layout_below="@+id/contacto_text"
+        android:layout_below="@+id/contacto_Input"
         android:layout_alignStart="@+id/textView5" />
 
     <Spinner
-        android:id="@+id/estado_text"
+        android:id="@+id/area_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Area"
-        android:layout_marginRight="120px"
         android:layout_alignBottom="@+id/textView2"
-        android:layout_alignStart="@+id/contacto_text" />
+        android:layout_alignStart="@+id/contacto_Input"
+        android:layout_marginRight="120px"
+        android:text="Area" />
     <TextView
         android:id="@+id/descrip"
         android:layout_width="wrap_content"
@@ -65,18 +64,18 @@
         android:textSize="18sp"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/textView2"
-        android:layout_alignStart="@+id/direccion_input" />
+        android:layout_alignStart="@+id/descripcion_input" />
 
     <EditText
-        android:id="@+id/direccion_input"
+        android:id="@+id/descripcion_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btn_enviar"
+        android:layout_alignStart="@+id/textView2"
         android:layout_below="@+id/descrip"
         android:layout_marginTop="11dp"
         android:ems="10"
-        android:inputType="textMultiLine"
-        android:layout_alignEnd="@+id/btn_enviar"
-        android:layout_alignStart="@+id/textView2" />
+        android:inputType="textMultiLine" />
 
     <Button
         android:id="@+id/btn_enviar"
@@ -87,6 +86,7 @@
         android:layout_marginEnd="64dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="66dp" />
+        android:layout_marginBottom="66dp"
+        android:onClick="callRegister"/>
 
 </RelativeLayout>

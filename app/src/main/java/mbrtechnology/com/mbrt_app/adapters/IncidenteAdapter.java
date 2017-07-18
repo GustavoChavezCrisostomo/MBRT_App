@@ -69,8 +69,8 @@ public class IncidenteAdapter extends RecyclerView.Adapter<IncidenteAdapter.View
                 intent.putExtra("ID", incidente.getId());
                 activity.startActivity(intent);
             }
-        });
 
+        });
     }
 
     @Override
