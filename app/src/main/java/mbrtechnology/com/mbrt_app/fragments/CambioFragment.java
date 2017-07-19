@@ -19,9 +19,8 @@ public class CambioFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static CambioFragment newInstance(String param1, String param2) {
+    public static CambioFragment newInstance() {
         CambioFragment fragment = new CambioFragment();
-
         return fragment;
     }
 
@@ -49,6 +48,8 @@ public class CambioFragment extends Fragment {
 
         String estado = spinner.getSelectedItem().toString();
 
-        return inflater.inflate(R.layout.fragment_cambio, container, false);
+
+
+        return view;
     }
 }

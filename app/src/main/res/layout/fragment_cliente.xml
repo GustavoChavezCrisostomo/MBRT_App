@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -75,7 +78,8 @@
         android:layout_below="@+id/descrip"
         android:layout_marginTop="11dp"
         android:ems="10"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        android:maxLength="500"/>
 
     <Button
         android:id="@+id/btn_enviar"
@@ -83,10 +87,11 @@
         android:layout_height="wrap_content"
         android:text="ENVIAR"
         android:textSize="18sp"
-        android:layout_marginEnd="64dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="66dp"
-        android:onClick="callRegister"/>
+        android:onClick="callRegister"
+        android:layout_marginStart="22dp"
+        android:layout_below="@+id/descripcion_input"
+        android:layout_toEndOf="@+id/textView3"
+        android:layout_marginTop="147dp" />
 
 </RelativeLayout>
+</ScrollView>

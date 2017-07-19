@@ -1,11 +1,12 @@
 package mbrtechnology.com.mbrt_app.adapters;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import mbrtechnology.com.mbrt_app.R;
 import mbrtechnology.com.mbrt_app.activities.DetalleActivity;
+import mbrtechnology.com.mbrt_app.fragments.CambioFragment;
 import mbrtechnology.com.mbrt_app.models.Incidente;
 
 /**
@@ -22,9 +24,10 @@ import mbrtechnology.com.mbrt_app.models.Incidente;
 public class IncidenteAdapter extends RecyclerView.Adapter<IncidenteAdapter.ViewHolder> {
 
     private List<Incidente> incidentes;
-    private Activity activity;
+    private FragmentActivity activity;
 
-    public IncidenteAdapter(Activity activity){
+
+    public IncidenteAdapter(FragmentActivity activity){
         this.activity = activity;
         this.incidentes = new ArrayList<>();
     }
@@ -38,6 +41,7 @@ public class IncidenteAdapter extends RecyclerView.Adapter<IncidenteAdapter.View
         public TextView estadoText;
         public TextView tecnicoText;
         public TextView areaText;
+        private Button button;
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -46,6 +50,7 @@ public class IncidenteAdapter extends RecyclerView.Adapter<IncidenteAdapter.View
             estadoText = (TextView) itemView.findViewById(R.id.estado_text);
             tecnicoText = (TextView) itemView.findViewById(R.id.tecnico_text);
             areaText = (TextView) itemView.findViewById(R.id.area_text);
+            button = (Button) itemView.findViewById(R.id.btn_cambio);
         }
     }
 
@@ -71,6 +76,15 @@ public class IncidenteAdapter extends RecyclerView.Adapter<IncidenteAdapter.View
             }
 
         });
+
+        viewHolder.button.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.content, CambioFragment.newInstance()).commit();
+            }
+        });
+
     }
 
     @Override

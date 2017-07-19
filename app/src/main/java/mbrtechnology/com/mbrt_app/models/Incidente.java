@@ -10,15 +10,17 @@ public class Incidente {
     private String area;
     private String descripcion;
     private String estado;
+    private String tecnico;
 
     public Incidente(){
     }
 
-    public Incidente(String contacto, String area, String descripcion, String estado){
+    public Incidente(String contacto, String area, String descripcion, String estado, String tecnico){
         this.contacto = contacto;
         this.area = area;
         this.descripcion = descripcion;
         this.estado = estado;
+        this.tecnico = tecnico;
     }
 
     public Integer getId() {
@@ -55,6 +57,9 @@ public class Incidente {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public String getTecnico() { return tecnico; }
+    public void setTecnico(String tecnico) { this.tecnico = tecnico; }
 
     @Override
     public String toString() {

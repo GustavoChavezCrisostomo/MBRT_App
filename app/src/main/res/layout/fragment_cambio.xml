@@ -1,84 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="62dp"
-        android:text="Estado"
-        android:textIsSelectable="false"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
-    <Spinner
-        android:id="@+id/estado_spinner"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="28dp"
-        android:layout_toEndOf="@+id/textView" />
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView"
-        android:layout_below="@+id/estado_spinner"
-        android:layout_marginTop="33dp"
-        android:text="Tecnico"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/estado_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado"
+            android:textIsSelectable="false"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
 
-    <EditText
-        android:id="@+id/tecnico_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/estado_spinner"
-        android:layout_below="@+id/textView6"
-        android:layout_marginTop="11dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Tecnico" />
+        <Spinner
+            android:id="@+id/estado_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/estado_text"
+            android:layout_marginBottom="16dp"/>
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView6"
-        android:layout_centerVertical="true"
-        android:text="Descripcion"
-        android:textIsSelectable="true"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tecnico_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/estado_spinner"
+            android:layout_marginBottom="8dp"
+            android:text="Tecnico"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView7"
-        android:layout_below="@+id/textView7"
-        android:layout_marginTop="14dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:layout_alignEnd="@+id/estado_spinner" />
+        <EditText
+            android:id="@+id/tecnico_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tecnico_text"
+            android:layout_marginBottom="16dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Tecnico" />
 
-    <Button
-        android:id="@+id/btn_modi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editText2"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="35dp"
-        android:layout_marginEnd="24dp"
-        android:text="Guardar" />
-</RelativeLayout>
+        <TextView
+            android:id="@+id/descripcion_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tecnico_input"
+            android:text="Descripcion"
+            android:textIsSelectable="true"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/descripcion_text"
+            android:layout_marginBottom="48dp"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/btn_modi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</ScrollView>
