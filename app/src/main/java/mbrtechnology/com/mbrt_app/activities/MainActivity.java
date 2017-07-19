@@ -1,5 +1,6 @@
 package mbrtechnology.com.mbrt_app.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -9,7 +10,6 @@ import android.widget.Toast;
 
 import mbrtechnology.com.mbrt_app.R;
 import mbrtechnology.com.mbrt_app.ResponseMessage;
-import mbrtechnology.com.mbrt_app.fragments.MenuFragment;
 import mbrtechnology.com.mbrt_app.service.ApiService;
 import mbrtechnology.com.mbrt_app.service.ApiServiceGenerator;
 import retrofit2.Call;
@@ -19,6 +19,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+    private static final int MAIN_FORM_REQUEST = 100;
 
     private EditText loginInput;
     private EditText passwordInput;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void callLogin(View view) {
+    public void callLogin(View view) {
 
         String login = loginInput.getText().toString();
         String password = passwordInput.getText().toString();
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.d(TAG, "responseMessage: " + responseMessage);
 
                         Toast.makeText(MainActivity.this, responseMessage.getMessage(), Toast.LENGTH_LONG).show();
-                        MainActivity.this.getSupportFragmentManager().beginTransaction().replace(R.id.content, MenuFragment.newInstance()).commit();
+                        startActivityForResult(new Intent(MainActivity.this, PrincipalActivity.class), MAIN_FORM_REQUEST);
 
                     } else {
                         Log.e(TAG, "onError: " + response.errorBody().string());

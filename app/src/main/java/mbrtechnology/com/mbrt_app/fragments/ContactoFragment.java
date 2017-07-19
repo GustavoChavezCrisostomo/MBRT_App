@@ -10,8 +10,10 @@ import mbrtechnology.com.mbrt_app.R;
 
 
 public class ContactoFragment extends Fragment {
+
+    private static final String TAG = ContactoFragment.class.getSimpleName();
+
     public ContactoFragment() {
-        // Required empty public constructor
     }
 
     //add
