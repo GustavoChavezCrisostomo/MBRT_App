@@ -1,4 +1,4 @@
-package mbrtechnology.com.mbrt_app.apiService;
+package mbrtechnology.com.mbrt_app.service;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -34,4 +34,5 @@ public class ApiServiceGenerator {
         }
         return retrofit.create(serviceClass);
     }
+
 }

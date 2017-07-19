@@ -9,8 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import mbrtechnology.com.mbrt_app.R;
-import mbrtechnology.com.mbrt_app.apiService.ApiService;
-import mbrtechnology.com.mbrt_app.apiService.ApiServiceGenerator;
+import mbrtechnology.com.mbrt_app.service.ApiService;
+import mbrtechnology.com.mbrt_app.service.ApiServiceGenerator;
 import mbrtechnology.com.mbrt_app.models.Incidente;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -89,8 +89,8 @@ public class DetalleActivity extends AppCompatActivity {
                 Toast.makeText(DetalleActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
 
-            });
-        }
+        });
+    }
 
 
     public void callMainForm(View view) {

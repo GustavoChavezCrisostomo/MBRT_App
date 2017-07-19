@@ -11,17 +11,17 @@
         android:roundIcon="@mipmap/icono"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainActivity"></activity>
-        <activity
-            android:name=".activities.PrincipalActivity"
-            android:label="@string/title_activity_principal">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.DetalleActivity"></activity>
+        <activity android:name=".activities.PrincipalActivity"
+            android:label="@string/title_activity_principal">
+        </activity>
+        <activity android:name=".activities.DetalleActivity"/>
     </application>
 
 </manifest>

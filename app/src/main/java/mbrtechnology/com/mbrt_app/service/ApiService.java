@@ -1,4 +1,4 @@
-package mbrtechnology.com.mbrt_app.apiService;
+package mbrtechnology.com.mbrt_app.service;
 
 import java.util.List;
 
@@ -32,5 +32,12 @@ public interface ApiService {
 
     @GET("api/v1/incidente/{id}")
     Call<Incidente> showIncidente(@Path("id") Integer id);
+
+    @FormUrlEncoded
+    @POST("/api/v1/login")
+    Call<ResponseMessage> login(
+            @Field("usuario") String login,
+            @Field("password") String password
+    );
 
 }

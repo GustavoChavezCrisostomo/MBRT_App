@@ -17,8 +17,8 @@ import java.util.List;
 
 import mbrtechnology.com.mbrt_app.R;
 import mbrtechnology.com.mbrt_app.ResponseMessage;
-import mbrtechnology.com.mbrt_app.apiService.ApiService;
-import mbrtechnology.com.mbrt_app.apiService.ApiServiceGenerator;
+import mbrtechnology.com.mbrt_app.service.ApiService;
+import mbrtechnology.com.mbrt_app.service.ApiServiceGenerator;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
