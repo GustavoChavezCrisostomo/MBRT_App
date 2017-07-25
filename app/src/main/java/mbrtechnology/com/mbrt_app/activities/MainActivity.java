@@ -9,9 +9,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import mbrtechnology.com.mbrt_app.R;
-import mbrtechnology.com.mbrt_app.ResponseMessage;
+import mbrtechnology.com.mbrt_app.models.Usuario;
 import mbrtechnology.com.mbrt_app.service.ApiService;
 import mbrtechnology.com.mbrt_app.service.ApiServiceGenerator;
+import mbrtechnology.com.mbrt_app.util.PreferencesManager;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,8 +30,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        PreferencesManager.getInstance(this);
+
         loginInput = (EditText) findViewById(R.id.login_input);
         passwordInput = (EditText)findViewById(R.id.password_input);
+
+        // Verificar si ya está LOGUEADO
+        if(PreferencesManager.getInstance().get(PreferencesManager.PREF_ISLOGGED) != null){
+            startActivity(new Intent(MainActivity.this, PrincipalActivity.class));
+            finish();
+        }
+
 
     }
 
@@ -44,13 +54,13 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         ApiService service = ApiServiceGenerator.createService(ApiService.class);
-        Call<ResponseMessage> call = null;
+        Call<Usuario> call = null;
 
         call = service.login(login, password);
 
-        call.enqueue(new Callback<ResponseMessage>() {
+        call.enqueue(new Callback<Usuario>() {
             @Override
-            public void onResponse(Call<ResponseMessage> call, Response<ResponseMessage> response) {
+            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
                 try {
 
                     int statusCode = response.code();
@@ -58,11 +68,18 @@ public class MainActivity extends AppCompatActivity {
 
                     if (response.isSuccessful()) {
 
-                        ResponseMessage responseMessage = response.body();
-                        Log.d(TAG, "responseMessage: " + responseMessage);
+                        Usuario usuario = response.body();
+                        Log.d(TAG, "responseMessage: " + usuario);
 
-                        Toast.makeText(MainActivity.this, responseMessage.getMessage(), Toast.LENGTH_LONG).show();
-                        startActivityForResult(new Intent(MainActivity.this, PrincipalActivity.class), MAIN_FORM_REQUEST);
+                        // Grabar los datos en el SP
+                        PreferencesManager.getInstance().set(PreferencesManager.PREF_ID, ""+usuario.getId());
+                        PreferencesManager.getInstance().set(PreferencesManager.PREF_USERNAME, ""+usuario.getLogin());
+                        PreferencesManager.getInstance().set(PreferencesManager.PREF_FULLNAME, ""+usuario.getNombre());
+                        PreferencesManager.getInstance().set(PreferencesManager.PREF_ROLE, ""+usuario.getRole());
+                        PreferencesManager.getInstance().set(PreferencesManager.PREF_ISLOGGED, "1");
+
+                        //Toast.makeText(MainActivity.this, usuario.getMessage(), Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(MainActivity.this, PrincipalActivity.class));
 
                     } else {
                         Log.e(TAG, "onError: " + response.errorBody().string());
@@ -78,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseMessage> call, Throwable t) {
+            public void onFailure(Call<Usuario> call, Throwable t) {
                 Log.e(TAG, "onFailure: " + t.toString());
                 Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }

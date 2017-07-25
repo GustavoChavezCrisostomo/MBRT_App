@@ -6,17 +6,38 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import mbrtechnology.com.mbrt_app.R;
 import mbrtechnology.com.mbrt_app.fragments.ClienteFragment;
 import mbrtechnology.com.mbrt_app.fragments.ContactoFragment;
 import mbrtechnology.com.mbrt_app.fragments.MenuFragment;
+import mbrtechnology.com.mbrt_app.util.PreferencesManager;
 
 public class PrincipalActivity extends AppCompatActivity {
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.option, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.exit:
+                logout();
+        }
+        return true;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
@@ -45,6 +66,11 @@ public class PrincipalActivity extends AppCompatActivity {
                     }
                 });
 
+        String role = PreferencesManager.getInstance().get(PreferencesManager.PREF_ROLE);
+        if("ROLE_CLTE_NAT".equalsIgnoreCase(role)) {
+            bottomNavigationView.getMenu().removeItem(R.id.navigation_nuevaAtencion);
+        }
+
         //Manually displaying the first fragment - one time only
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.content, MenuFragment.newInstance());
@@ -52,6 +78,12 @@ public class PrincipalActivity extends AppCompatActivity {
 
         //Used to select an item programmatically
         //bottomNavigationView.getMenu().getItem(2).setChecked(true);
+
+    }
+
+    public void logout(){
+        PreferencesManager.getInstance().remove(PreferencesManager.PREF_ISLOGGED);
+        finish();
     }
 
 }

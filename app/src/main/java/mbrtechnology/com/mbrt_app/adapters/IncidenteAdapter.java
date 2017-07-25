@@ -16,6 +16,7 @@ import mbrtechnology.com.mbrt_app.R;
 import mbrtechnology.com.mbrt_app.activities.DetalleActivity;
 import mbrtechnology.com.mbrt_app.fragments.CambioFragment;
 import mbrtechnology.com.mbrt_app.models.Incidente;
+import mbrtechnology.com.mbrt_app.util.PreferencesManager;
 
 /**
  * Created by ASUS on 7/07/2017.
@@ -84,6 +85,12 @@ public class IncidenteAdapter extends RecyclerView.Adapter<IncidenteAdapter.View
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.content, CambioFragment.newInstance()).commit();
             }
         });
+
+        // Validar rol
+        String role = PreferencesManager.getInstance().get(PreferencesManager.PREF_ROLE);
+        if("ROLE_CLTE_NAT".equalsIgnoreCase(role)){
+            viewHolder.button.setVisibility(View.GONE);
+        }
 
     }
 

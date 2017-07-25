@@ -4,6 +4,7 @@ import java.util.List;
 
 import mbrtechnology.com.mbrt_app.ResponseMessage;
 import mbrtechnology.com.mbrt_app.models.Incidente;
+import mbrtechnology.com.mbrt_app.models.Usuario;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -35,7 +36,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("/api/v1/login")
-    Call<ResponseMessage> login(
+    Call<Usuario> login(
             @Field("usuario") String login,
             @Field("password") String password
     );

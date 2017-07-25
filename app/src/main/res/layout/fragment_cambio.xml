@@ -14,11 +14,11 @@
             android:id="@+id/estado_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="Estado"
             android:textIsSelectable="false"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/estado_spinner"
@@ -31,13 +31,13 @@
             android:id="@+id/tecnico_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/estado_spinner"
-            android:layout_marginBottom="8dp"
             android:text="Tecnico"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
-        <EditText
+        <Spinner
             android:id="@+id/tecnico_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,11 +52,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tecnico_input"
+            android:layout_marginBottom="8dp"
             android:text="Descripcion"
             android:textIsSelectable="true"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editText2"
@@ -68,10 +68,12 @@
 
         <Button
             android:id="@+id/btn_modi"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Guardar"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_marginTop="132dp"
+            android:layout_below="@+id/editText2"
+            android:layout_toEndOf="@+id/descripcion_text"
+            android:layout_marginStart="79dp" />
     </RelativeLayout>
 </ScrollView>

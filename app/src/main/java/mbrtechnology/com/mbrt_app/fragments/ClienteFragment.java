@@ -19,6 +19,7 @@ import mbrtechnology.com.mbrt_app.R;
 import mbrtechnology.com.mbrt_app.ResponseMessage;
 import mbrtechnology.com.mbrt_app.service.ApiService;
 import mbrtechnology.com.mbrt_app.service.ApiServiceGenerator;
+import mbrtechnology.com.mbrt_app.util.PreferencesManager;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -61,6 +62,7 @@ public class ClienteFragment extends Fragment {
         // ProgressBar Gone
         getActivity().findViewById(R.id.main_progress).setVisibility(View.GONE);
 
+
         spinner = (Spinner) view.findViewById(R.id.area_spinner);
         List<String> list = Arrays.asList(getResources().getStringArray(R.array.area));
 
@@ -69,6 +71,11 @@ public class ClienteFragment extends Fragment {
         spinner.setAdapter(spinnerAdapter);
 
         contactoInput = (EditText) view.findViewById(R.id.contacto_Input);
+        // Seteando el usuario logueado
+        String nombres = PreferencesManager.getInstance().get(PreferencesManager.PREF_FULLNAME);
+        contactoInput.setText(nombres);
+
+
         descripcionInput = (EditText) view.findViewById(R.id.descripcion_input);
 
         button = (Button) view.findViewById(R.id.btn_enviar);
@@ -76,7 +83,8 @@ public class ClienteFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                String contacto = contactoInput.getText().toString();
+//                String contacto = contactoInput.getText().toString();
+                String contacto = PreferencesManager.getInstance().get(PreferencesManager.PREF_ID);
                 String area = spinner.getSelectedItem().toString();
                 String descripcion = descripcionInput.getText().toString();
 
