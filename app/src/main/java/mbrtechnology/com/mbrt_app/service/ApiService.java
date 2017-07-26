@@ -41,4 +41,7 @@ public interface ApiService {
             @Field("password") String password
     );
 
+    @GET("api/v1/user/{id}")
+    Call<Usuario> showUsuario(@Path("id") Integer id);
+
 }
