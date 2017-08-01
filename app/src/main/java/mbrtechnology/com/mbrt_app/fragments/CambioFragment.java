@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import mbrtechnology.com.mbrt_app.R;
+import mbrtechnology.com.mbrt_app.util.PreferencesManager;
 
 public class CambioFragment extends Fragment {
 
@@ -48,7 +49,11 @@ public class CambioFragment extends Fragment {
 
         String estado = spinner.getSelectedItem().toString();
 
-
+        String role = PreferencesManager.getInstance().get(PreferencesManager.PREF_ROLE);
+        if("ROLE_SUPER".equalsIgnoreCase(role)){
+            getActivity().findViewById(R.id.tecnico_text).setVisibility(View.INVISIBLE);
+            getActivity().findViewById(R.id.tecnico_input).setVisibility(View.INVISIBLE);
+        }
 
         return view;
     }

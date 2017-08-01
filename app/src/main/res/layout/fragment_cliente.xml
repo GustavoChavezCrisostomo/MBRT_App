@@ -46,11 +46,11 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView5"
-            android:layout_below="@+id/contacto_Input"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="29dp"
             android:text="Area"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:layout_below="@+id/contacto_Input"
+            android:layout_alignStart="@+id/textView5" />
 
         <Spinner
             android:id="@+id/area_spinner"
@@ -65,35 +65,35 @@
             android:id="@+id/descrip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/descripcion_input"
-            android:layout_below="@+id/textView2"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="36dp"
             android:text="Descripcion"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:layout_below="@+id/textView2"
+            android:layout_alignStart="@+id/textView2" />
 
         <EditText
             android:id="@+id/descripcion_input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/btn_enviar"
-            android:layout_alignStart="@+id/textView2"
-            android:layout_below="@+id/descrip"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="9dp"
             android:ems="10"
             android:inputType="textMultiLine"
-            android:maxLength="500" />
+            android:maxLength="500"
+            android:layout_below="@+id/descrip"
+            android:layout_toEndOf="@+id/textView2"
+            android:layout_marginStart="14dp" />
 
         <Button
             android:id="@+id/btn_enviar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="163dp"
+            android:layout_marginTop="144dp"
             android:onClick="callRegister"
             android:text="ENVIAR"
             android:textSize="18sp"
+            android:layout_marginEnd="32dp"
             android:layout_below="@+id/descripcion_input"
-            android:layout_toEndOf="@+id/textView3" />
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 </ScrollView>

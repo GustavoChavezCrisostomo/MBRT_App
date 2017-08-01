@@ -67,8 +67,19 @@ public class PrincipalActivity extends AppCompatActivity {
                 });
 
         String role = PreferencesManager.getInstance().get(PreferencesManager.PREF_ROLE);
-        if("ROLE_CLTE_NAT".equalsIgnoreCase(role)) {
-            bottomNavigationView.getMenu().removeItem(R.id.navigation_nuevaAtencion);
+        switch (role){
+            case "ROLE_CLTE_NAT" :
+                bottomNavigationView.getMenu().removeItem(R.id.navigation_nuevaAtencion);
+                break;
+            case  "ROLE_SUPER" :
+                bottomNavigationView.getMenu().removeItem(R.id.navigation_nuevaAtencion);
+                break;
+            case "ROLE_TEC" :
+                bottomNavigationView.getMenu().removeItem(R.id.navigation_nuevaAtencion);
+                break;
+            case "ROLE_ADMIN" :
+                bottomNavigationView.getMenu().removeItem(R.id.navigation_nuevaAtencion);
+                break;
         }
 
         //Manually displaying the first fragment - one time only
