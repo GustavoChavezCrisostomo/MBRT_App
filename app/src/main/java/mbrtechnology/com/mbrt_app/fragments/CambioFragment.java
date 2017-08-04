@@ -12,9 +12,17 @@ import java.util.Arrays;
 import java.util.List;
 
 import mbrtechnology.com.mbrt_app.R;
-import mbrtechnology.com.mbrt_app.util.PreferencesManager;
+import mbrtechnology.com.mbrt_app.models.Tecnico;
+import mbrtechnology.com.mbrt_app.service.ApiService;
+import mbrtechnology.com.mbrt_app.service.ApiServiceGenerator;
+import retrofit2.Call;
 
 public class CambioFragment extends Fragment {
+
+    private  Integer id;
+
+    private Spinner spinner_tec;
+    private ArrayAdapter<String> spinnerAdapter_tec;
 
     public CambioFragment() {
         // Required empty public constructor
@@ -40,21 +48,54 @@ public class CambioFragment extends Fragment {
         // ProgressBar Gone
         getActivity().findViewById(R.id.main_progress).setVisibility(View.GONE);
 
-        Spinner spinner = (Spinner) view.findViewById(R.id.estado_spinner);
-        List<String> list = Arrays.asList(getResources().getStringArray(R.array.estado));
+        // Spinner Estado
+        Spinner spinner_est = (Spinner) view.findViewById(R.id.estado_spinner);
+        List<String> list_est = Arrays.asList(getResources().getStringArray(R.array.estado));
 
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(spinnerAdapter);
+        ArrayAdapter<String> spinnerAdapter_est = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list_est);
+        spinnerAdapter_est.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_est.setAdapter(spinnerAdapter_est);
 
-        String estado = spinner.getSelectedItem().toString();
+        String estado = spinner_est.getSelectedItem().toString();
 
-        String role = PreferencesManager.getInstance().get(PreferencesManager.PREF_ROLE);
-        if("ROLE_SUPER".equalsIgnoreCase(role)){
-            getActivity().findViewById(R.id.tecnico_text).setVisibility(View.INVISIBLE);
-            getActivity().findViewById(R.id.tecnico_input).setVisibility(View.INVISIBLE);
-        }
+        //Spinner Tecnico
+        spinner_tec = (Spinner) view.findViewById(R.id.tecnico_spinner);
+        List<String> list_tec = Arrays.asList(getResources().getStringArray(R.array.tecnico));
+
+        spinnerAdapter_tec = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list_tec);
+        spinnerAdapter_tec.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_tec.setAdapter(spinnerAdapter_tec);
+
+        initialize();
+
+//        spinnerAdapter_tec.add("DELHI");
+//        spinnerAdapter_tec.notifyDataSetChanged();
 
         return view;
     }
+
+    private  void initialize(){
+        ApiService service = ApiServiceGenerator.createService(ApiService.class);
+        Call<List<Tecnico>> call = service.getTecnico();
+/*
+        call.enqueue(new Callback<List<Tecnico>>() {
+            @Override
+            public void onResponse(Call<List<Tecnico>> call, Response<List<Tecnico>> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Tecnico>> call, Throwable t) {
+
+            }
+        });
+
+        while ( != null ){
+
+            spinnerAdapter_tec.add();
+        }
+*/
+        spinnerAdapter_tec.notifyDataSetChanged();
+    }
+
 }

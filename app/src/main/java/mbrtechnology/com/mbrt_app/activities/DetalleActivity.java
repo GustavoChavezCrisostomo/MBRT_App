@@ -94,7 +94,8 @@ public class DetalleActivity extends AppCompatActivity {
 
 
     public void callMainForm(View view) {
-        startActivityForResult(new Intent(this, PrincipalActivity.class), MAIN_FORM_REQUEST);
+        startActivity(new Intent(this, PrincipalActivity.class));
+        finish();
     }
 
 

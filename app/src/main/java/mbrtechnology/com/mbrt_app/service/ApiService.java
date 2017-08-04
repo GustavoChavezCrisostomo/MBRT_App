@@ -4,6 +4,7 @@ import java.util.List;
 
 import mbrtechnology.com.mbrt_app.ResponseMessage;
 import mbrtechnology.com.mbrt_app.models.Incidente;
+import mbrtechnology.com.mbrt_app.models.Tecnico;
 import mbrtechnology.com.mbrt_app.models.Usuario;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -43,5 +44,8 @@ public interface ApiService {
 
     @GET("api/v1/user/{id}")
     Call<Usuario> showUsuario(@Path("id") Integer id);
+
+    @GET("api/v1/tecnico")
+    Call<List<Tecnico>> getTecnico();
 
 }

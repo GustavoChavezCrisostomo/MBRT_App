@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
 
                         Usuario usuario = response.body();
                         Log.d(TAG, "responseMessage: " + usuario);
-
                         // Grabar los datos en el SP
                         PreferencesManager.getInstance().set(PreferencesManager.PREF_ID, ""+usuario.getId());
                         PreferencesManager.getInstance().set(PreferencesManager.PREF_USERNAME, ""+usuario.getLogin());
@@ -80,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //Toast.makeText(MainActivity.this, usuario.getMessage(), Toast.LENGTH_LONG).show();
                         startActivity(new Intent(MainActivity.this, PrincipalActivity.class));
+                        finish();
 
                     } else {
                         Log.e(TAG, "onError: " + response.errorBody().string());

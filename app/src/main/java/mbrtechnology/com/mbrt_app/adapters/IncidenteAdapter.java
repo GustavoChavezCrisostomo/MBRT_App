@@ -74,6 +74,7 @@ public class IncidenteAdapter extends RecyclerView.Adapter<IncidenteAdapter.View
                 Intent intent = new Intent(activity, DetalleActivity.class);
                 intent.putExtra("ID", incidente.getId());
                 activity.startActivity(intent);
+                activity.finish();
             }
 
         });
@@ -88,8 +89,13 @@ public class IncidenteAdapter extends RecyclerView.Adapter<IncidenteAdapter.View
 
         // Validar rol
         String role = PreferencesManager.getInstance().get(PreferencesManager.PREF_ROLE);
-        if("ROLE_CLTE_NAT".equalsIgnoreCase(role)){
-            viewHolder.button.setVisibility(View.GONE);
+        switch (role){
+            case "ROLE_CLTE_NAT" :
+                viewHolder.button.setVisibility(View.GONE);
+                break;
+            case  "ROLE_CLTE_JUD" :
+                viewHolder.button.setVisibility(View.GONE);
+                break;
         }
 
     }

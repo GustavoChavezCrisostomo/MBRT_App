@@ -38,7 +38,7 @@
             android:textStyle="bold" />
 
         <Spinner
-            android:id="@+id/tecnico_input"
+            android:id="@+id/tecnico_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tecnico_text"
@@ -51,7 +51,7 @@
             android:id="@+id/descripcion_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tecnico_input"
+            android:layout_below="@+id/tecnico_spinner"
             android:layout_marginBottom="8dp"
             android:text="Descripcion"
             android:textIsSelectable="true"
