@@ -2,12 +2,14 @@ package mbrtechnology.com.mbrt_app.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,10 +23,11 @@ import retrofit2.Response;
 
 public class CambioFragment extends Fragment {
 
+    private static final String TAG = CambioFragment.class.getSimpleName();
+
     private  Integer id;
 
     private Spinner spinner_tec;
-    private ArrayAdapter<String> spinnerAdapter_tec;
 
     public CambioFragment() {
         // Required empty public constructor
@@ -62,16 +65,8 @@ public class CambioFragment extends Fragment {
 
         //Spinner Tecnico
         spinner_tec = (Spinner) view.findViewById(R.id.tecnico_spinner);
-        List<String> list_tec = Arrays.asList(getResources().getStringArray(R.array.tecnico));
-
-        spinnerAdapter_tec = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list_tec);
-        spinnerAdapter_tec.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_tec.setAdapter(spinnerAdapter_tec);
 
         initialize();
-
-//        spinnerAdapter_tec.add("DELHI");
-//        spinnerAdapter_tec.notifyDataSetChanged();
 
         return view;
     }
@@ -83,12 +78,18 @@ public class CambioFragment extends Fragment {
         call.enqueue(new Callback<List<Tecnico>>() {
             @Override
             public void onResponse(Call<List<Tecnico>> call, Response<List<Tecnico>> response) {
+
                 List<Tecnico> tecnicos = response.body();
-                for (Tecnico tecnico :
-                        tecnicos) {
-                    spinnerAdapter_tec.add(tecnico.getId().toString());
+                Log.d(TAG, "Tecnicos: " + tecnicos);
+
+                List<String> list_tec = new ArrayList<String>();
+                for (Tecnico tecnico : tecnicos) {
+                    list_tec.add(tecnico.getId().toString());
                 }
-                 spinnerAdapter_tec.notifyDataSetChanged();
+
+                ArrayAdapter<String> spinnerAdapter_tec = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list_tec);
+                spinnerAdapter_tec.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinner_tec.setAdapter(spinnerAdapter_tec);
             }
 
             @Override
