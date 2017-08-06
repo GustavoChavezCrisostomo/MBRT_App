@@ -16,6 +16,8 @@ import mbrtechnology.com.mbrt_app.models.Tecnico;
 import mbrtechnology.com.mbrt_app.service.ApiService;
 import mbrtechnology.com.mbrt_app.service.ApiServiceGenerator;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CambioFragment extends Fragment {
 
@@ -77,11 +79,16 @@ public class CambioFragment extends Fragment {
     private  void initialize(){
         ApiService service = ApiServiceGenerator.createService(ApiService.class);
         Call<List<Tecnico>> call = service.getTecnico();
-/*
+
         call.enqueue(new Callback<List<Tecnico>>() {
             @Override
             public void onResponse(Call<List<Tecnico>> call, Response<List<Tecnico>> response) {
-
+                List<Tecnico> tecnicos = response.body();
+                for (Tecnico tecnico :
+                        tecnicos) {
+                    spinnerAdapter_tec.add(tecnico.getId().toString());
+                }
+                 spinnerAdapter_tec.notifyDataSetChanged();
             }
 
             @Override
@@ -89,13 +96,6 @@ public class CambioFragment extends Fragment {
 
             }
         });
-
-        while ( != null ){
-
-            spinnerAdapter_tec.add();
-        }
-*/
-        spinnerAdapter_tec.notifyDataSetChanged();
     }
 
 }
